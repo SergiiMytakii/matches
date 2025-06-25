@@ -22,18 +22,18 @@ class LangChainPredictionRepositoryImpl implements PredictionRepository {
     );
 
     final prompt = PromptTemplate.fromTemplate(
-      'Provide a brief prediction for the football match between {teamA} and {teamB} scheduled for {matchTime}.',
+      "Given {teamA}'s last 5 results (W-W-L-D-W) and {teamB}'s last 5 results (L-L-W-D-L), predict the winner for the match between {teamA} and {teamB} scheduled for {matchTime}. Provide a brief prediction and a confidence percentage. Format your response as: Prediction: [Your Prediction] | Confidence: [Your Confidence]%.",
     );
 
     final chain = LLMChain(llm: openAI, prompt: prompt);
 
     try {
-      final result = await chain.run({
+      final result = await chain.invoke({
         'teamA': match.teamA,
         'teamB': match.teamB,
         'matchTime': match.matchTime.toIso8601String(),
       });
-      return result;
+      return result['output'].content;
     } catch (e) {
       return 'Failed to get prediction: $e';
     }

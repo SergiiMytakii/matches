@@ -30,6 +30,8 @@ void main() {
     teamA: 'A',
     teamB: 'B',
     matchTime: DateTime.now(),
+    teamAResults: 'W-W-L-D-W',
+    teamBResults: 'L-L-W-D-L',
   );
   const mockPrediction = 'Team A will win.';
 

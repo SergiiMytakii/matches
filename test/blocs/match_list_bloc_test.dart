@@ -25,7 +25,13 @@ void main() {
   });
 
   final mockMatches = [
-    MatchModel(teamA: 'A', teamB: 'B', matchTime: DateTime.now()),
+    MatchModel(
+      teamA: 'A',
+      teamB: 'B',
+      matchTime: DateTime.now(),
+      teamAResults: 'W-W-L-D-W',
+      teamBResults: 'L-L-W-D-L',
+    ),
   ];
 
   blocTest<MatchListBloc, MatchListState>(

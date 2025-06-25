@@ -22,7 +22,7 @@ class LangChainPredictionRepositoryImpl implements PredictionRepository {
     );
 
     final prompt = PromptTemplate.fromTemplate(
-      "Given {teamA}'s last 5 results (W-W-L-D-W) and {teamB}'s last 5 results (L-L-W-D-L), predict the winner for the match between {teamA} and {teamB} scheduled for {matchTime}. Provide a brief prediction and a confidence percentage. Format your response as: Prediction: [Your Prediction] | Confidence: [Your Confidence]%.",
+      "Given {teamA}'s last 5 results: {teamAResults} and {teamB}'s last 5 results: {teamBResults}, predict the winner for the match between {teamA} and {teamB} scheduled for {matchTime}. Provide a brief prediction and a confidence percentage. Format your response as: Prediction: [Your Prediction] | Confidence: [Your Confidence]%.",
     );
 
     final chain = LLMChain(llm: openAI, prompt: prompt);
@@ -30,7 +30,9 @@ class LangChainPredictionRepositoryImpl implements PredictionRepository {
     try {
       final result = await chain.invoke({
         'teamA': match.teamA,
+        'teamAResults': match.teamAResults,
         'teamB': match.teamB,
+        'teamBResults': match.teamBResults,
         'matchTime': match.matchTime.toIso8601String(),
       });
       return result['output'].content;

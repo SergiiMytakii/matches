@@ -1,10 +1,10 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:matches/blocs/predictionBloc/prediction_bloc.dart';
-import 'package:matches/blocs/predictionBloc/prediction_event.dart';
-import 'package:matches/blocs/predictionBloc/prediction_state.dart';
-import 'package:matches/models/match.dart';
-import 'package:matches/repositories/prediction_repository.dart';
+import 'package:matches/features/matches/presentation/bloc/predictionBloc/prediction_bloc.dart';
+import 'package:matches/features/matches/presentation/bloc/predictionBloc/prediction_event.dart';
+import 'package:matches/features/matches/presentation/bloc/predictionBloc/prediction_state.dart';
+import 'package:matches/features/matches/domain/models/match.dart';
+import 'package:matches/features/matches/domain/repositories/prediction_repository.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
@@ -26,7 +26,11 @@ void main() {
     predictionBloc.close();
   });
 
-  final mockMatch = Match(teamA: 'A', teamB: 'B', matchTime: DateTime.now());
+  final mockMatch = MatchModel(
+    teamA: 'A',
+    teamB: 'B',
+    matchTime: DateTime.now(),
+  );
   const mockPrediction = 'Team A will win.';
 
   blocTest<PredictionBloc, PredictionState>(

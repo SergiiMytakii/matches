@@ -5,8 +5,9 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
-import 'package:matches/models/match.dart' as _i4;
-import 'package:matches/repositories/prediction_repository.dart' as _i2;
+import 'package:matches/features/matches/domain/models/match.dart' as _i4;
+import 'package:matches/features/matches/domain/repositories/prediction_repository.dart'
+    as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i5;
 
@@ -34,7 +35,7 @@ class MockPredictionRepository extends _i1.Mock
   }
 
   @override
-  _i3.Future<String> getMatchPrediction({required _i4.Match? match}) =>
+  _i3.Future<String> getMatchPrediction({required _i4.MatchModel? match}) =>
       (super.noSuchMethod(
             Invocation.method(#getMatchPrediction, [], {#match: match}),
             returnValue: _i3.Future<String>.value(

@@ -1,9 +1,9 @@
-class Match {
+class MatchModel {
   final String teamA;
   final String teamB;
   final DateTime matchTime;
 
-  Match({
+  MatchModel({
     required this.teamA,
     required this.teamB,
     required this.matchTime,

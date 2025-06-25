@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:matches/models/match.dart';
+import 'package:matches/features/matches/domain/models/match.dart';
 
 abstract class MatchListState extends Equatable {
   const MatchListState();
@@ -13,7 +13,7 @@ class MatchListInitial extends MatchListState {}
 class MatchListLoading extends MatchListState {}
 
 class MatchListLoaded extends MatchListState {
-  final List<Match> matches;
+  final List<MatchModel> matches;
 
   const MatchListLoaded(this.matches);
 

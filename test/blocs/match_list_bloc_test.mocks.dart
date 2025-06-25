@@ -5,8 +5,9 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
-import 'package:matches/models/match.dart' as _i4;
-import 'package:matches/repositories/match_repository.dart' as _i2;
+import 'package:matches/features/matches/domain/models/match.dart' as _i4;
+import 'package:matches/features/matches/domain/repositories/match_repository.dart'
+    as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -32,10 +33,12 @@ class MockMatchRepository extends _i1.Mock implements _i2.MatchRepository {
   }
 
   @override
-  _i3.Future<List<_i4.Match>> getUpcomingMatches() =>
+  _i3.Future<List<_i4.MatchModel>> getUpcomingMatches() =>
       (super.noSuchMethod(
             Invocation.method(#getUpcomingMatches, []),
-            returnValue: _i3.Future<List<_i4.Match>>.value(<_i4.Match>[]),
+            returnValue: _i3.Future<List<_i4.MatchModel>>.value(
+              <_i4.MatchModel>[],
+            ),
           )
-          as _i3.Future<List<_i4.Match>>);
+          as _i3.Future<List<_i4.MatchModel>>);
 }

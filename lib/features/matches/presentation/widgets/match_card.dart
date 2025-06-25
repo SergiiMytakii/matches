@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:matches/models/match.dart';
+import 'package:matches/features/matches/domain/models/match.dart';
 
 class MatchCard extends StatelessWidget {
-  final Match match;
+  final MatchModel match;
   final VoidCallback onTap;
 
   const MatchCard({super.key, required this.match, required this.onTap});
@@ -20,11 +20,17 @@ class MatchCard extends StatelessWidget {
             children: [
               Text(
                 '${match.teamA} vs ${match.teamB}',
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               const SizedBox(height: 8),
               Text(
-                match.matchTime.toIso8601String().substring(0, 16).replaceAll('T', ' '),
+                match.matchTime
+                    .toIso8601String()
+                    .substring(0, 16)
+                    .replaceAll('T', ' '),
                 style: const TextStyle(color: Colors.grey),
               ),
             ],

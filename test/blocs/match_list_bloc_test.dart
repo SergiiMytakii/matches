@@ -1,10 +1,10 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:matches/blocs/matchListBloc/match_list_bloc.dart';
-import 'package:matches/blocs/matchListBloc/match_list_event.dart';
-import 'package:matches/blocs/matchListBloc/match_list_state.dart';
-import 'package:matches/models/match.dart';
-import 'package:matches/repositories/match_repository.dart';
+import 'package:matches/features/matches/presentation/bloc/matchListBloc/match_list_bloc.dart';
+import 'package:matches/features/matches/presentation/bloc/matchListBloc/match_list_event.dart';
+import 'package:matches/features/matches/presentation/bloc/matchListBloc/match_list_state.dart';
+import 'package:matches/features/matches/domain/models/match.dart';
+import 'package:matches/features/matches/domain/repositories/match_repository.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
@@ -25,7 +25,7 @@ void main() {
   });
 
   final mockMatches = [
-    Match(teamA: 'A', teamB: 'B', matchTime: DateTime.now()),
+    MatchModel(teamA: 'A', teamB: 'B', matchTime: DateTime.now()),
   ];
 
   blocTest<MatchListBloc, MatchListState>(

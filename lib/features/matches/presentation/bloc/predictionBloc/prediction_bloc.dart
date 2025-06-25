@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:matches/blocs/predictionBloc/prediction_event.dart';
-import 'package:matches/blocs/predictionBloc/prediction_state.dart';
-import 'package:matches/repositories/prediction_repository.dart';
+import 'package:matches/features/matches/domain/repositories/prediction_repository.dart';
+import 'package:matches/features/matches/presentation/bloc/predictionBloc/prediction_event.dart';
+import 'package:matches/features/matches/presentation/bloc/predictionBloc/prediction_state.dart';
 
 class PredictionBloc extends Bloc<PredictionEvent, PredictionState> {
   final PredictionRepository predictionRepository;

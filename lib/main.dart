@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:matches/locator.dart';
-import 'package:matches/screens/home_screen.dart';
+import 'package:matches/core/dependency_injection/locator.dart';
+import 'package:matches/features/matches/presentation/screens/home_screen.dart';
 
 void main() {
   setupLocator();
@@ -14,9 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Football Matches',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: const HomeScreen(),
     );
   }

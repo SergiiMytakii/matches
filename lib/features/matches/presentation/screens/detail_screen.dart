@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:matches/blocs/predictionBloc/prediction_bloc.dart';
-import 'package:matches/blocs/predictionBloc/prediction_event.dart';
-import 'package:matches/blocs/predictionBloc/prediction_state.dart';
-import 'package:matches/locator.dart';
-import 'package:matches/models/match.dart';
+import 'package:matches/core/dependency_injection/locator.dart';
+import 'package:matches/features/matches/domain/models/match.dart';
+import 'package:matches/features/matches/presentation/bloc/predictionBloc/prediction_bloc.dart';
+import 'package:matches/features/matches/presentation/bloc/predictionBloc/prediction_event.dart';
+import 'package:matches/features/matches/presentation/bloc/predictionBloc/prediction_state.dart';
 
 class DetailScreen extends StatelessWidget {
-  final Match match;
+  final MatchModel match;
 
   const DetailScreen({super.key, required this.match});
 
@@ -17,7 +17,7 @@ class DetailScreen extends StatelessWidget {
       create: (context) =>
           locator<PredictionBloc>()..add(FetchPrediction(match)),
       child: Scaffold(
-        appBar: AppBar(title: const Text('Match Details')),
+        appBar: AppBar(title: const Text('MatchModel Details')),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(

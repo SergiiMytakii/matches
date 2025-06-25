@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:matches/blocs/matchListBloc/match_list_bloc.dart';
-import 'package:matches/blocs/matchListBloc/match_list_event.dart';
-import 'package:matches/blocs/matchListBloc/match_list_state.dart';
-import 'package:matches/locator.dart';
-import 'package:matches/models/match.dart';
-import 'package:matches/screens/detail_screen.dart';
-import 'package:matches/widgets/match_card.dart';
+import 'package:matches/core/dependency_injection/locator.dart';
+import 'package:matches/features/matches/domain/models/match.dart';
+import 'package:matches/features/matches/presentation/bloc/matchListBloc/match_list_bloc.dart';
+import 'package:matches/features/matches/presentation/bloc/matchListBloc/match_list_event.dart';
+import 'package:matches/features/matches/presentation/bloc/matchListBloc/match_list_state.dart';
+import 'package:matches/features/matches/presentation/widgets/match_card.dart';
+import 'package:matches/features/matches/presentation/screens/detail_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  void _navigateToDetail(BuildContext context, Match match) {
+  void _navigateToDetail(BuildContext context, MatchModel match) {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => DetailScreen(match: match)),

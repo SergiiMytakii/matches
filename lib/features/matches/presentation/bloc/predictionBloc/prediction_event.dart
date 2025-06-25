@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:matches/models/match.dart';
+import 'package:matches/features/matches/domain/models/match.dart';
 
 abstract class PredictionEvent extends Equatable {
   const PredictionEvent();
@@ -9,7 +9,7 @@ abstract class PredictionEvent extends Equatable {
 }
 
 class FetchPrediction extends PredictionEvent {
-  final Match match;
+  final MatchModel match;
 
   const FetchPrediction(this.match);
 
